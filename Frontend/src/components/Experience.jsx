@@ -34,7 +34,7 @@ function Experience() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_Backend_url}/api/v1/product/products`)
+      .get(`https://a-3d-product-visualization-platform.onrender.com/api/v1/product/products`)
       .then((response) => setModelData(response.data[0]))
       .catch((error) => console.error('Error fetching model data:', error));
   }, []);
@@ -70,7 +70,7 @@ function Experience() {
     };
 
     axios
-      .post('http://localhost:8000/api/v1/customization/customization', customizationData)
+      .post('https://a-3d-product-visualization-platform.onrender.com/api/v1/customization/customization', customizationData)
       .then((response) => {
         alert('Customization saved successfully!');
         console.log('Saved:', response.data);
@@ -125,7 +125,7 @@ function Experience() {
             {modelData.textures.map((textureUrl, index) => (
               <option
                 key={index}
-                value={`http://localhost:8000/models/painted_wooden/${textureUrl}`}
+                value={`https://a-3d-product-visualization-platform.onrender.com/models/painted_wooden/${textureUrl}`}
               >
                 {textureUrl}
               </option>
@@ -146,7 +146,7 @@ function Experience() {
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
           <Model
-            modelUrl={`http://localhost:8000${modelData.modelPath}`}
+            modelUrl={`https://a-3d-product-visualization-platform.onrender.com${modelData.modelPath}`}
             color={color}
             size={size}
             texture={texture}
