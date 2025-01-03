@@ -34,7 +34,7 @@ function Experience() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/v1/product/products')
+      .get(`${import.meta.env.VITE_Backend_url}/api/v1/product/products`)
       .then((response) => setModelData(response.data[0]))
       .catch((error) => console.error('Error fetching model data:', error));
   }, []);
